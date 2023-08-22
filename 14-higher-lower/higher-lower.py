@@ -13,7 +13,7 @@ def main():
         print(logo)
         
         if score > 0:
-            print(f"Correct, score: {score}")
+            print(f"Correct, Score: {score}")
             
         print(f"Compare A: {character_a['name']}, a {character_a['description']}, from {character_a['country']}.")
         print(vs)
@@ -28,7 +28,7 @@ def main():
             character_b = get_random_character()
         else:
             os.system('clear')
-            print(f"You Lose. score: {score}")
+            print(f"Sorry, it's wrong. Score: {score}")
             break
 
         score += 1
