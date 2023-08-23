@@ -18,11 +18,11 @@ def main():
         if coffee == 'report':
             print_report()
         else:
-            if not check_resources(coffee):
+            if not is_enough_resources(coffee):
                 print("Not enough resources.")
             else:
                 payment = get_payment()
-                if not check_transaction(coffee, payment):
+                if not is_payment_enough(coffee, payment):
                     print("Incomplete payment. Return money")
                 else:
                     coffee_cost = MENU[coffee]['cost']
@@ -41,7 +41,7 @@ def print_report() -> None:
 
 
 # TODO: 2. Check if resources are sufficient when making coffee
-def check_resources(coffee_type: str) -> bool:
+def is_enough_resources(coffee_type: str) -> bool:
     """Returns True if there are enough resources to produce the chosen coffee"""
     coffee_ingredients = MENU[coffee_type]["ingredients"]
     for ingredient, quantity in coffee_ingredients.items():
@@ -65,7 +65,7 @@ def get_payment() -> float:
 
 
 # TODO: 4 Check if the transaction is successful
-def check_transaction(coffee: str, payment: float) -> bool:
+def is_payment_enough(coffee: str, payment: float) -> bool:
     """Returns True if the payment is enough for the coffee"""
     if payment >= MENU[coffee]['cost']:
         return True
