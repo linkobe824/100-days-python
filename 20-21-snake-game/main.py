@@ -11,6 +11,13 @@ screen.tracer(0)
 # Create the snake body
 snake = Snake()
 
+screen.listen()
+screen.onkey(snake.up,"Up")
+screen.onkey(snake.right, "Right")
+screen.onkey(snake.down, "Down")
+screen.onkey(snake.left, "Left")
+
+
 # move the snake
 game_is_on = True
 while game_is_on:
